@@ -1,0 +1,9 @@
+:root {
+    --backgroundColor  : #F1F1F1;
+    --borderRadius     : 7px;
+    --loginBorderRadius: 17px;
+    --lightBlackText   : #404040;
+    --primaryTextColor : #001529;
+    --secondaryTextColor : rgba(61, 3, 111, 0.75);
+    --thirdTextColor : darksalmon;
+}

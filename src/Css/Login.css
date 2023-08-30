@@ -1,0 +1,105 @@
+.login-container {
+    width          : 100%;
+    height         : 100vh;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+}
+
+.login-container .form-container {
+    width           : 400px;
+    height          : 480px;
+    background-color: white;
+    border-radius   : var(--loginBorderRadius);
+    padding         : 14px;
+    box-shadow      : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.login-container .form-container .logo {
+    width     : 140px;
+    display   : block;
+    margin    : auto;
+    margin-top: 15px;
+}
+
+.login-container .form-container h2 {
+    font-size    : 22px;
+    text-align   : center;
+    color        : var(--lightBlackText);
+    margin-top   : 20px;
+    margin-bottom: 5px;
+}
+
+.login-container .form-container h2 span {
+    font-weight: bold;
+    color      : var(--primaryTextColor);
+}
+
+.login-container .form-container p {
+    text-align   : center;
+    font-size    : 15px;
+    margin-bottom: 45px;
+    margin-top   : 0px;
+    color        : var(--thirdTextColor);
+}
+
+.login-container .form-container .form-input-container {
+    width        : 90%;
+    margin       : auto;
+    margin-bottom: 15px;
+}
+
+.login-container .form-container .form-input-container label {
+    font-size  : 14px;
+    font-weight: 600;
+    color      : var(--secondaryTextColor);
+}
+
+.login-container .form-container .form-input-container input {
+    width                     : 100%;
+    padding                   : 10px;
+    background-color          : var(--backgroundColor);
+    border-radius             : var(--borderRadius);
+    border-bottom-left-radius : 0px;
+    border-bottom-right-radius: 0px;
+    border                    : none;
+    border-bottom             : 1px solid var(--primaryTextColor);
+    outline                   : none;
+    margin-top                : 10px;
+
+}
+
+.login-container .form-container .form-input-container input:focus {
+    border-bottom: 1px solid var(--primaryTextColor);
+}
+
+.login-container .form-container .signin-btn-container {
+    width : 90%;
+    margin: auto;
+}
+
+.login-container .form-container .signin-btn {
+    width           : 100%;
+    padding         : 8px;
+    border-radius   : var(--borderRadius);
+    outline         : none;
+    border          : none;
+    background-color: var(--primaryTextColor);
+    color           : white;
+    margin-top      : 20px;
+    font-size       : 16px;
+    font-weight     : bold;
+    cursor          : pointer;
+    transition      : all .6s;
+}
+
+.login-container .form-container .signin-btn:hover {
+    border          : 1px solid var(--primaryTextColor);
+    background-color: transparent;
+    color           : var(--primaryTextColor);
+}
+
+.login-container .form-container .signin-btn span {
+    position: relative;
+    left    : 2px;
+}

@@ -1,0 +1,111 @@
+.form-container label {
+    display      : block;
+    font-size    : 14px;
+    font-weight  : bold;
+    color        : rgba(0, 0, 0, 0.479);
+    margin-bottom: 5px;
+}
+
+.form-container .make-grid-container-4 {
+    display              : grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.form-container .make-grid-container-3 {
+    display              : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form-container .make-grid-container-2 {
+    display              : grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form-container .make-grid-container-1 {
+    display              : grid;
+    grid-template-columns: 1fr;
+}
+
+.form-container .make-grid-container-4 section {
+    width       : 90%;
+    margin-left : auto;
+    margin-right: auto;
+}
+
+.form-container .make-grid-container-3 section {
+    width       : 80%;
+    margin-left : auto;
+    margin-right: auto;
+}
+
+.form-container .make-grid-container-2 section {
+    width       : 90%;
+    margin-left : auto;
+    margin-right: auto;
+}
+
+.form-container .make-grid-container-1 section {
+    width       : 95%;
+    margin-left : auto;
+    margin-right: auto;
+}
+
+.form-container input {
+    outline      : none;
+    border       : 1px solid rgba(0, 0, 0, 0.23);
+    padding      : 6px;
+    width        : 100%;
+    border-radius: 7px;
+    margin-bottom: 5px;
+}
+
+.form-container .ant-select {
+    width: 100% !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.form-container .text-area {
+    resize       : none;
+    outline      : none;
+    border       : 1px solid rgba(0, 0, 0, 0.23);
+    padding      : 6px;
+    width        : 100%;
+    border-radius: 7px;
+    height       : 180px;
+}
+
+.form-container input:hover,
+.form-container .text-area:hover {
+    border-color: black;
+}
+
+.form-container .section-title {
+    color      : var(--thirdTextColor);
+    margin     : 0px;
+    position   : relative;
+    left       : 25px;
+    margin     : 20px 0px;
+    font-size  : 18px;
+    font-weight: 700;
+
+}
+
+.form-container .submit-btn {
+    outline         : none;
+    border          : none;
+    margin-top      : 25px;
+    margin-left     : 25px;
+    padding         : 8px;
+    background-color: var(--secondaryTextColor);
+    color           : white;
+    width           : 200px;
+    border-radius   : 7px;
+    cursor          : pointer;
+}
+
+.form-container .submit-btn:hover {
+    background-color: transparent;
+    color           : var(--secondaryTextColor);
+    border          : 1px solid var(--secondaryTextColor);
+}

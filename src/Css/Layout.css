@@ -1,0 +1,21 @@
+.layout-container .logo-text {
+    font-size: 16px;
+    color    : rgba(255, 255, 255, 0.762);
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.layout-container .ant-layout-header,
+.layout-container .ant-layout-sider,
+.layout-container .ant-menu.ant-menu-dark {
+    background-color: var(--primaryTextColor);
+}
+
+.white-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--borderRadius);
+    min-height: 70vh;
+
+}

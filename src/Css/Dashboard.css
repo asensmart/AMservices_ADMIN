@@ -1,0 +1,46 @@
+.dashboard-container {
+    display              : grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items        : center;
+    grid-gap             : 40px;
+}
+
+.dashboard-container div {
+    background-color: white;
+    width           : 100%;
+    border-radius   : var(--borderRadius);
+    padding         : 20px;
+    box-shadow      : rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.dashboard-container .Card-container h1 {
+    color: var(--lightBlackText);
+}
+
+.dashboard-container .Card-container h1 span {
+    font-size: 20px;
+}
+
+.dashboard-container .Card-container h2 {
+    color      : var(--lightBlackText);
+    font-weight: bold;
+    font-size  : 19px;
+}
+
+.dashboard-container .Card-container button {
+    outline         : none;
+    border          : none;
+    background-color: var(--thirdTextColor);
+    color           : white;
+    width           : 90px;
+    padding         : 5px;
+    border-radius   : var(--borderRadius);
+    transition      : all .5s;
+    cursor          : pointer;
+}
+
+.dashboard-container .Card-container button:hover {
+    background-color: transparent;
+    border: 1px solid var(--thirdTextColor);
+    color : var(--thirdTextColor)
+}

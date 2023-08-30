@@ -1,0 +1,14 @@
+@import './variables.css';
+@import './Login.css';
+@import './Dashboard.css';
+@import './Layout.css';
+@import './forms.css';
+
+* {
+    margin : 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--backgroundColor);
+}
