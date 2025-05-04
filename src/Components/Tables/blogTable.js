@@ -12,10 +12,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { notification } from "antd";
 
-export default function BrandTable({
+export default function BlogTable({
   tableData,
   editPath,
-  isBrand,
   setRefetch,
   refetch,
 }) {
@@ -23,7 +22,7 @@ export default function BrandTable({
 
   const DeleteHandler = (data) => {
     axios
-      .delete(`/delete/${isBrand ? "brand" : "category"}`, { data })
+      .delete(`/delete/blog`, { data })
       .then((res) => {
         notification["success"]({
           message: res.data.data,
@@ -44,9 +43,8 @@ export default function BrandTable({
           <TableHead>
             <TableRow>
               <TableCell> S.No </TableCell>
-              <TableCell align="center">Brand Name</TableCell>
-              <TableCell align="center">Slug</TableCell>
-              <TableCell align="center">Title</TableCell>
+              <TableCell align="center">Blog Title</TableCell>
+              <TableCell align="center">Short Description</TableCell>
               <TableCell align="center"></TableCell>
               <TableCell align="center"></TableCell>
             </TableRow>
@@ -61,10 +59,9 @@ export default function BrandTable({
                   {i + 1}
                 </TableCell>
                 <TableCell align="center">
-                  {row.brandName ? row.brandName : row.categoryName}
+                  {row.blogTitle ? row.blogTitle : row.blogTitle}
                 </TableCell>
-                <TableCell align="center">{row.slug}</TableCell>
-                <TableCell align="center">{row.title}</TableCell>
+                <TableCell align="center">{row.shortDescription}</TableCell>
                 <TableCell align="center">
                   <div
                     onClick={() => {

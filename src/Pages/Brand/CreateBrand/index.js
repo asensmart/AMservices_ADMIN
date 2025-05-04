@@ -45,17 +45,14 @@ function CreateBrand(props) {
         moreInfo,
         description,
       };
-      // console.log("temp --->", temp);
       formData.append("data", JSON.stringify(temp));
       formData.append("logo", logo[0]);
       formData.append("titleBackground", titleBackgroundImage[0]);
       formData.append("sideImage", sideThumbnail[0]);
       setLoading(true);
-      // console.log("formData --->", formData);
       axios
         .post("/post/createBrand", formData)
         .then((res) => {
-          // console.log("res --->", res);
           setLoading(false);
           notification["success"]({
             message: res.data.message,
@@ -64,7 +61,6 @@ function CreateBrand(props) {
           navigate("/viewBrand");
         })
         .catch((err) => {
-          console.log("err --->", err);
           setLoading(false);
           notification["error"]({
             message: "Something went wrong!",

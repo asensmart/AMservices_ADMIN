@@ -6,6 +6,7 @@ import {
 } from "@ant-design/icons";
 import { GoLocation } from "react-icons/go";
 import { AiOutlineStar } from "react-icons/ai";
+import { FaBlog, FaBlogger } from "react-icons/fa";
 import { Breadcrumb, Layout, Menu } from "antd";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -37,6 +38,10 @@ const items = [
   ]),
   getItem("Ratings", "sub4", "", <AiOutlineStar />, [
     getItem("View Ratings", "8", "/viewRatings", <EyeOutlined />),
+  ]),
+  getItem("Blogs", "sub5", "", <FaBlog />, [
+    getItem("Create Blog", "9", "/createBlog", <PlusOutlined />),
+    getItem("View Blogs", "10", "/viewBlog", <FaBlogger />),
   ]),
 ];
 

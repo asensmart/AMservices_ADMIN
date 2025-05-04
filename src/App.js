@@ -14,6 +14,9 @@ import ViewServiceArea from "./Pages/ServiceAreas/ViewServiceArea";
 import ViewRatingByBrand from "./Pages/Ratings/ViewRatings";
 import ViewBrands from "./Pages/Ratings/ViewBrands";
 import Layouts from "./Components/layouts";
+import CreateBlog from "./Pages/Blog/CreateBlog";
+import ViewBlog from "./Pages/Blog/ViewBlog";
+import EditBlog from "./Pages/Blog/EditBlog";
 
 function App() {
   return (
@@ -139,6 +142,30 @@ function App() {
               element={
                 <Layouts Activekey={"10"} Breadcrumbs={["View Ratings"]}>
                   <ViewRatingByBrand />
+                </Layouts>
+              }
+            />
+            <Route
+              path="/createBlog"
+              element={
+                <Layouts Activekey={"11"} Breadcrumbs={["Blogs", "Create Blog"]}>
+                  <CreateBlog />
+                </Layouts>
+              }
+            />
+            <Route
+              path="/viewBlog"
+              element={
+                <Layouts Activekey={"12"} Breadcrumbs={["Blogs", "View Blogs"]}>
+                  <ViewBlog />
+                </Layouts>
+              }
+            />
+            <Route
+              path="/editBlog"
+              element={
+                <Layouts Activekey={"13"} Breadcrumbs={["Blog", "Edit Blog"]}>
+                  <EditBlog />
                 </Layouts>
               }
             />
