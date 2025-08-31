@@ -25,7 +25,7 @@ function CreateCategory() {
   const [titleBackgroundImage, setTitleBackgroundImage] = useState(null);
   const [moreInfo, setMoreInfo] = useState("");
   const [loading, setLoading] = useState(false);
-  const [description, setDescription] = useState("");
+  // const [description, setDescription] = useState("");
   const navigate = useNavigate();
   const [brands, setBrands] = useState([]);
   const [brandSlug, setBrandSlug] = useState("");
@@ -50,7 +50,7 @@ function CreateCategory() {
         slug: brandSlug + data.slug,
         brandName,
         moreInfo,
-        description,
+        // description,
       };
 
       formData.append("data", JSON.stringify(temp));
@@ -166,20 +166,13 @@ function CreateCategory() {
                 setFiles={setSideThumbnail}
               />
             </section>
-            <section>
+            {/* <section>
               <label>Description*</label>
-              {/* <textarea
-                className="text-area"
-                value={data.description ? data.description : ""}
-                onChange={(e) =>
-                  setData({ ...data, description: e.target.value })
-                }
-              /> */}
               <RichTextEditor
                 content={description}
                 setContent={setDescription}
               />
-            </section>
+            </section> */}
             <section>
               <label>Side Image Alt Name*</label>
               <input
@@ -223,7 +216,7 @@ function CreateCategory() {
           </div>
           <h1 className="section-title">More Information</h1>
           <div className="make-grid-container-1">
-            <section>
+            {/* <section>
               <label>Rich Text Editor Header*</label>
               <input
                 type={"text"}
@@ -232,7 +225,7 @@ function CreateCategory() {
                   setData({ ...data, richTextHeader: e.target.value })
                 }
               />
-            </section>
+            </section> */}
             <section>
               <label>Rich Text Editor</label>
               <RichTextEditor content={moreInfo} setContent={setMoreInfo} />

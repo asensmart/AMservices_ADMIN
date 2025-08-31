@@ -36,6 +36,34 @@ function App() {
                 </Layouts>
               }
             />
+
+            <Route
+              path="/createBrand"
+              element={
+                <Layouts
+                  Activekey={"4"}
+                  Breadcrumbs={["Brand", "Create Brand"]}
+                >
+                  <CreateBrand />
+                </Layouts>
+              }
+            />
+            <Route
+              path="/viewBrand"
+              element={
+                <Layouts Activekey={"5"} Breadcrumbs={["Brand", "View Brand"]}>
+                  <ViewBrand />
+                </Layouts>
+              }
+            />
+            <Route
+              path="/editBrand"
+              element={
+                <Layouts Activekey={"5"} Breadcrumbs={["Brand", "Edit Brand"]}>
+                  <EditBrand />
+                </Layouts>
+              }
+            />
             <Route
               path="/createCategory"
               element={
@@ -66,33 +94,6 @@ function App() {
                   Breadcrumbs={["Category", "View Categories"]}
                 >
                   <ViewCategory />
-                </Layouts>
-              }
-            />
-            <Route
-              path="/createBrand"
-              element={
-                <Layouts
-                  Activekey={"4"}
-                  Breadcrumbs={["Brand", "Create Brand"]}
-                >
-                  <CreateBrand />
-                </Layouts>
-              }
-            />
-            <Route
-              path="/viewBrand"
-              element={
-                <Layouts Activekey={"5"} Breadcrumbs={["Brand", "View Brand"]}>
-                  <ViewBrand />
-                </Layouts>
-              }
-            />
-            <Route
-              path="/editBrand"
-              element={
-                <Layouts Activekey={"5"} Breadcrumbs={["Brand", "Edit Brand"]}>
-                  <EditBrand />
                 </Layouts>
               }
             />
@@ -148,7 +149,10 @@ function App() {
             <Route
               path="/createBlog"
               element={
-                <Layouts Activekey={"11"} Breadcrumbs={["Blogs", "Create Blog"]}>
+                <Layouts
+                  Activekey={"11"}
+                  Breadcrumbs={["Blogs", "Create Blog"]}
+                >
                   <CreateBlog />
                 </Layouts>
               }

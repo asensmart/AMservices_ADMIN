@@ -24,7 +24,7 @@ function CreateBrand(props) {
   const [sideThumbnail, setSideThumbnail] = useState(null);
   const [titleBackgroundImage, setTitleBackgroundImage] = useState(null);
   const [moreInfo, setMoreInfo] = useState("");
-  const [description, setDescription] = useState("");
+  // const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ function CreateBrand(props) {
       let temp = {
         ...data,
         moreInfo,
-        description,
+        // description,
       };
       formData.append("data", JSON.stringify(temp));
       formData.append("logo", logo[0]);
@@ -134,20 +134,13 @@ function CreateBrand(props) {
                 setFiles={setSideThumbnail}
               />
             </section>
-            <section>
+            {/* <section>
               <label>Description*</label>
               <RichTextEditor
                 content={description}
                 setContent={setDescription}
               />
-              {/* <textarea
-                className="text-area"
-                value={data.description ? data.description : ""}
-                onChange={(e) =>
-                  setData({ ...data, description: e.target.value })
-                }
-              /> */}
-            </section>
+            </section> */}
             <section>
               <label>Side Image Alt Name*</label>
               <input
@@ -191,7 +184,7 @@ function CreateBrand(props) {
           </div>
           <h1 className="section-title">More Information</h1>
           <div className="make-grid-container-1">
-            <section>
+            {/* <section>
               <label>Rich Text Editor Header*</label>
               <input
                 type={"text"}
@@ -200,7 +193,7 @@ function CreateBrand(props) {
                   setData({ ...data, richTextHeader: e.target.value })
                 }
               />
-            </section>
+            </section> */}
             <section>
               <label>Rich Text Editor</label>
               <RichTextEditor content={moreInfo} setContent={setMoreInfo} />

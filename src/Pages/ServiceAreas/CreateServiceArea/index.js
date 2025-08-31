@@ -27,7 +27,7 @@ function CreateBrand(props) {
   const [loading, setLoading] = useState(false);
   const [brands, setBrands] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [description, setDescription] = useState("");
+  // const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
   const { Option } = Select;
@@ -47,7 +47,7 @@ function CreateBrand(props) {
       let temp = {
         ...data,
         moreInfo,
-        description,
+        // description,
       };
       formData.append("data", JSON.stringify(temp));
       formData.append("logo", logo[0]);
@@ -185,20 +185,13 @@ function CreateBrand(props) {
                 setFiles={setSideThumbnail}
               />
             </section>
-            <section>
+            {/* <section>
               <label>Description*</label>
-              {/* <textarea
-                className="text-area"
-                value={data.description ? data.description : ""}
-                onChange={(e) =>
-                  setData({ ...data, description: e.target.value })
-                }
-              /> */}
               <RichTextEditor
                 content={description}
                 setContent={setDescription}
               />
-            </section>
+            </section> */}
             <section>
               <label>Side Image Alt Name*</label>
               <input
@@ -242,7 +235,7 @@ function CreateBrand(props) {
           </div>
           <h1 className="section-title">More Information</h1>
           <div className="make-grid-container-1">
-            <section>
+            {/* <section>
               <label>Rich Text Editor Header*</label>
               <input
                 type={"text"}
@@ -251,7 +244,7 @@ function CreateBrand(props) {
                   setData({ ...data, richTextHeader: e.target.value })
                 }
               />
-            </section>
+            </section> */}
             <section>
               <label>Rich Text Editor</label>
               <RichTextEditor content={moreInfo} setContent={setMoreInfo} />
@@ -313,6 +306,17 @@ function CreateBrand(props) {
                 onChange={(e) => {
                   setData({ ...data, color: e.target.value });
                 }}
+              />
+            </section>
+          </div>
+
+          <div className="make-grid-container-1">
+            <section>
+              <label>Google Map URL*</label>
+              <input
+                type={"text"}
+                value={data.gMap ? data.gMap : ""}
+                onChange={(e) => setData({ ...data, gMap: e.target.value })}
               />
             </section>
           </div>
