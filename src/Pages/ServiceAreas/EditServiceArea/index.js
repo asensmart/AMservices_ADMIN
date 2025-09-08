@@ -22,11 +22,27 @@ function EditBrand(props) {
   const { Option } = Select;
 
   useEffect(() => {
-    setData(state);
-    setLogo([state.serviceAreaLogo]);
-    setTitleBackgroundImage([state.titleBackgroundImage]);
-    setSideThumbnail([state.sideThumbnail]);
-    setMoreInfo(state.moreInfo);
+    axios
+      .get("/get/areaNamesById/" + state._id)
+      .then((res) => {
+        if (res.data.key) {
+          console.log("Service area data:", res.data.data);
+          const stateData = res.data.data;
+          setData(stateData);
+          setLogo([stateData.serviceAreaLogo]);
+          setTitleBackgroundImage([stateData.titleBackgroundImage]);
+          setSideThumbnail([stateData.sideThumbnail]);
+          setMoreInfo(stateData.moreInfo);
+          // You can now use res.data.data in your component
+        } else {
+          console.warn("No data found for the given ID.");
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching service area:", error);
+      });
+    // console.log("test data --->" + JSON.stringify(state));
+
     // setDescription(state.description);
   }, []);
 
@@ -111,8 +127,10 @@ function EditBrand(props) {
                 value={data.brandName ? data.brandName : ""}
                 onChange={handleChange}
               >
-                {brands.map((item) => (
-                  <Option value={JSON.stringify(item)}>{item.brandName}</Option>
+                {brands.map((item, i) => (
+                  <Option value={JSON.stringify(item)} key={i}>
+                    {item.brandName}
+                  </Option>
                 ))}
               </Select>
             </section>
@@ -130,8 +148,8 @@ function EditBrand(props) {
               >
                 {categories
                   .filter((item) => item?.brandName === data?.brandName)
-                  .map((item) => (
-                    <Option value={JSON.stringify(item)}>
+                  .map((item, i) => (
+                    <Option value={JSON.stringify(item)} key={i}>
                       {item.categoryName}
                     </Option>
                   ))}
@@ -329,7 +347,7 @@ function EditBrand(props) {
           </div>
           {data?.enableFaq
             ? data?.faqs.map((item, i) => (
-                <div className="make-grid-container-3">
+                <div className="make-grid-container-3" key={i}>
                   <section>
                     <label>Question*</label>
                     <input
