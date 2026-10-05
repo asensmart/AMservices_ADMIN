@@ -12,6 +12,7 @@ function EditBrand(props) {
   const [sideThumbnail, setSideThumbnail] = useState(null);
   const [titleBackgroundImage, setTitleBackgroundImage] = useState(null);
   const [moreInfo, setMoreInfo] = useState("");
+  const [isMenuHide, setIsMenuHide] = useState(false);
   // const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -19,15 +20,19 @@ function EditBrand(props) {
 
   useEffect(() => {
     setData(state);
+    setIsMenuHide(state.isMenuHide);
     setLogo([state.brandLogo]);
     setTitleBackgroundImage([state.titleBackgroundImage]);
     setSideThumbnail([state.sideThumbnail]);
     setMoreInfo(state.moreInfo);
-    // setDescription(state.description);
   }, []);
 
   const SubmitHandler = (e) => {
     e.preventDefault();
+    data.isMenuHide = isMenuHide;
+
+    // setData({ ...data, isMenuHide: isMenuHide })
+    // const payload = { ...data, moreInfo, isMenuHide };
 
     delete data.createdAt;
     delete data.updatedAt;
@@ -117,6 +122,17 @@ function EditBrand(props) {
               <label>Brand Logo*</label>
               <UploadImageTag files={logo} setFiles={setLogo} />
             </section>
+            <section>
+              <label>Hide Menu</label>
+              <input
+                type="checkbox"
+                checked={isMenuHide}
+                onChange={(e) =>setIsMenuHide(e.target.checked)}
+                style={{ width: "20px", backgroundColor: "#ff00ff" }}
+              />
+
+            </section>
+
           </div>
           <h1 className="section-title">Brand Information</h1>
           <div className="make-grid-container-2">
@@ -265,85 +281,85 @@ function EditBrand(props) {
           </div>
           {data?.enableFaq
             ? data?.faqs.map((item, i) => (
-                <div className="make-grid-container-3">
-                  <section>
-                    <label>Question*</label>
-                    <input
-                      type={"text"}
-                      value={item.name}
-                      onChange={(e) => {
-                        let temp = [...data.faqs];
-                        temp[i].name = e.target.value;
-                        setData({ ...data, faqs: temp });
-                      }}
-                    />
-                  </section>
+              <div className="make-grid-container-3">
+                <section>
+                  <label>Question*</label>
+                  <input
+                    type={"text"}
+                    value={item.name}
+                    onChange={(e) => {
+                      let temp = [...data.faqs];
+                      temp[i].name = e.target.value;
+                      setData({ ...data, faqs: temp });
+                    }}
+                  />
+                </section>
 
-                  <section>
-                    <label>Anwser*</label>
-                    <input
-                      type={"text"}
-                      value={item.acceptedAnswer.text}
-                      onChange={(e) => {
+                <section>
+                  <label>Anwser*</label>
+                  <input
+                    type={"text"}
+                    value={item.acceptedAnswer.text}
+                    onChange={(e) => {
+                      let temp = [...data.faqs];
+                      temp[i].acceptedAnswer.text = e.target.value;
+                      setData({ ...data, faqs: temp });
+                    }}
+                  />
+                </section>
+                <section style={{ alignSelf: "center" }}>
+                  {data?.faqs.length !== 1 ? (
+                    <button
+                      type="button"
+                      onClick={() => {
                         let temp = [...data.faqs];
-                        temp[i].acceptedAnswer.text = e.target.value;
-                        setData({ ...data, faqs: temp });
+                        let result = temp.filter(
+                          (item, index) => index !== i
+                        );
+                        setData({ ...data, faqs: result });
                       }}
-                    />
-                  </section>
-                  <section style={{ alignSelf: "center" }}>
-                    {data?.faqs.length !== 1 ? (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          let temp = [...data.faqs];
-                          let result = temp.filter(
-                            (item, index) => index !== i
-                          );
-                          setData({ ...data, faqs: result });
-                        }}
-                        style={{
-                          padding: "10px",
-                          cursor: "pointer",
-                          border: "none",
-                          backgroundColor: "transparent",
-                        }}
-                      >
-                        <MdDelete fontSize={20} />
-                      </button>
-                    ) : null}
-                    {data?.faqs.length - 1 === i ? (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setData({
-                            ...data,
-                            faqs: [
-                              ...data.faqs,
-                              {
-                                "@type": "Question",
-                                name: "",
-                                acceptedAnswer: {
-                                  "@type": "Answer",
-                                  text: "",
-                                },
+                      style={{
+                        padding: "10px",
+                        cursor: "pointer",
+                        border: "none",
+                        backgroundColor: "transparent",
+                      }}
+                    >
+                      <MdDelete fontSize={20} />
+                    </button>
+                  ) : null}
+                  {data?.faqs.length - 1 === i ? (
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setData({
+                          ...data,
+                          faqs: [
+                            ...data.faqs,
+                            {
+                              "@type": "Question",
+                              name: "",
+                              acceptedAnswer: {
+                                "@type": "Answer",
+                                text: "",
                               },
-                            ],
-                          });
-                        }}
-                        style={{
-                          padding: "10px",
-                          cursor: "pointer",
-                          border: "none",
-                          backgroundColor: "transparent",
-                        }}
-                      >
-                        <MdAdd fontSize={20} />
-                      </button>
-                    ) : null}
-                  </section>
-                </div>
-              ))
+                            },
+                          ],
+                        });
+                      }}
+                      style={{
+                        padding: "10px",
+                        cursor: "pointer",
+                        border: "none",
+                        backgroundColor: "transparent",
+                      }}
+                    >
+                      <MdAdd fontSize={20} />
+                    </button>
+                  ) : null}
+                </section>
+              </div>
+            ))
             : null}
           <button type="submit" className="submit-btn">
             Update
